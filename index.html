@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Index — Selected Work</title>
+<meta name="description" content="A personal index of work across art, code, and design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="wordmark">Index <span>/ selected work</span></a>
+    <nav class="site-nav">
+      <a href="index.html" class="current"><span class="nav-full">Home</span></a>
+      <a href="gallery.html"><span class="nav-full">Gallery</span></a>
+      <a href="#contact"><span class="nav-full">Contact</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="eyebrow">EST. 2026 — ONGOING</div>
+      <h1>A working index of things made.</h1>
+      <p class="hero-role">Art, code, and design, kept in one place. Most pieces here start as a CSS constraint and end up somewhere unexpected.</p>
+      <div class="hero-meta">
+        <span><strong>08</strong> works catalogued</span>
+        <span><strong>3</strong> mediums</span>
+        <span>Based in Ontario, Canada</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="block" id="highlights">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>Selected works</h2>
+        <a href="gallery.html" class="see-all">View full gallery →</a>
+      </div>
+      <div class="highlights-grid" id="highlights-grid"><!-- injected --></div>
+    </div>
+  </section>
+
+  <!-- ANNOUNCEMENTS -->
+  <section class="block" id="log">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>Log</h2>
+      </div>
+      <div class="log-list" id="log-list"><!-- injected --></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>Get in touch</h2>
+      </div>
+      <div class="contact-grid">
+        <form id="contact-form" novalidate>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input type="text" id="f-name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Your email</label>
+            <input type="email" id="f-email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="f-message">Message</label>
+            <textarea id="f-message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send message ↗</button>
+          <p class="form-note">Opens your email client with this message pre-filled — this site has no server, so nothing is sent automatically.</p>
+        </form>
+
+        <aside class="contact-aside">
+          <h3>Other ways to reach me</h3>
+          <div class="contact-row">
+            <span class="label">Email</span>
+            <span class="value">you@example.com</span>
+            <button class="copy-btn" data-copy="you@example.com">Copy</button>
+          </div>
+          <div class="contact-row">
+            <span class="label">Discord</span>
+            <span class="value">yourhandle</span>
+            <button class="copy-btn" data-copy="yourhandle">Copy</button>
+          </div>
+          <div class="contact-row">
+            <span class="label">GitHub</span>
+            <span class="value">github.com/yourname</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 — Index</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

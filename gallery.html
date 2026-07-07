@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Index</title>
+<meta name="description" content="Full gallery of work across art, code, and design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="wordmark">Index <span>/ selected work</span></a>
+    <nav class="site-nav">
+      <a href="index.html"><span class="nav-full">Home</span></a>
+      <a href="gallery.html" class="current"><span class="nav-full">Gallery</span></a>
+      <a href="index.html#contact"><span class="nav-full">Contact</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="gallery-head">
+    <div class="wrap">
+      <div class="eyebrow">FULL CATALOGUE</div>
+      <h1>Gallery</h1>
+      <p>Every piece, grouped by medium. Click any tile to open the full image series for that work.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="art">Art</button>
+      <button class="filter-btn" data-filter="code">Code</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+    </div>
+
+    <div class="gallery-grid" id="gallery-grid"><!-- injected --></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 — Index</span>
+    <a href="index.html">Back to home ↑</a>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lightbox-inner">
+    <div class="lightbox-stage" id="lightbox-stage">
+      <button class="lightbox-nav-btn prev" id="lightbox-prev" aria-label="Previous image">‹</button>
+      <button class="lightbox-nav-btn next" id="lightbox-next" aria-label="Next image">›</button>
+    </div>
+    <div class="lightbox-meta">
+      <div>
+        <h3 id="lightbox-title"></h3>
+        <p class="desc" id="lightbox-desc"></p>
+      </div>
+      <span class="lightbox-counter" id="lightbox-counter"></span>
+    </div>
+    <div class="lightbox-thumbs" id="lightbox-thumbs"></div>
+  </div>
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
