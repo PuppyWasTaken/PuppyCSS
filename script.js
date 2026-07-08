@@ -26,10 +26,10 @@ const WORKS = [
   },
   {
     id: 'w25', title: 'commission for @uglylittlelamb', medium: 'Full Profile', year: '2026',
-    description: 'vintage / occult theme inspired profile for marcy!! thank you for your patience and freedom on the designs for this!! it was a lot of fun to make !! <3'
+    description: 'vintage / occult theme inspired profile for marcy!! thank you for your patience and freedom on the designs for this!! it was a lot of fun to make !! <3',
     images: ['assets/gallery/w25-1.png', 'assets/gallery/w25-2.png', 'assets/gallery/w25-3.png', 'assets/gallery/w25-4.png']
   },
-      id: 'w24', title: 'commission for @Farmerhay', medium: 'Full Profile', year: '2026',
+    {id: 'w24', title: 'commission for @Farmerhay', medium: 'Full Profile', year: '2026',
     description: 'tgswiiwagaa-inspired commission for hailey who gave me the creative freedom and chance to work on such a cool profile for her!! one of my fav creators and one of the first creators i followed on the site!! it was an honour to do her profile for her!! <3 thank you for the support and trust hailey!! <3 ily included a complex scrapbook/manga layout & fully responsive design!',
     images: ['assets/gallery/w24-1.webp', 'assets/gallery/w24-2.webp']
   },
@@ -68,7 +68,7 @@ const WORKS = [
     description: 'occult / horror commission for the lovely tuna!! they were so patient and lovely and gave me lots of creative freedom with their vision!!! thank you so much for the trust!!',
     images: ['assets/gallery/w17-1.png', 'assets/gallery/w17-2.png']
   },
-      id: 'w16', title: 'commission for @lewisvashnicholas', medium: 'Full Profile', year: '2025',
+    {id: 'w16', title: 'commission for @lewisvashnicholas', medium: 'Full Profile', year: '2025',
     description: 'commission for lumiere!! this was really neat to work on!! thank you so much for your patience and support! included horizontal cards and tabulated dropdowns',
     images: ['assets/gallery/w16-1.png', 'assets/gallery/w16-2.png']
   },
@@ -143,7 +143,7 @@ const WORKS = [
     description: 'classic academia theme',
     images: ['assets/gallery/w02-1.png', 'assets/gallery/w02-2.png']
   },
-    id: 'w01', title: 'Commission for @brezzk', medium: 'Full Profile', year: '2025',
+    {id: 'w01', title: 'Commission for @brezzk', medium: 'Full Profile', year: '2025',
     description: 'Gothic occult theme',
     images: ['assets/gallery/w01-1.png', 'assets/gallery/w01-2.png']
   },
@@ -169,7 +169,7 @@ function renderHighlights() {
 
 const ANNOUNCEMENTS = [
   { date: '2026-07-07', tag: 'update', title: 'Moving off of Ko-Fi', body: 'Migrating all CSS commission work and tools here' },
-  { date: '2026-07-05', tag: 'new post', title: 'updated harper's updated bio and profile' },
+  { date: '2026-07-07', tag: 'new post', title: 'added posts to gallery' }
 ];
 
 function renderAnnouncements() {
