@@ -153,6 +153,100 @@ const WORKS = [
   },
 ];
 
+function setupZoomableImage(stage) {
+  const state = { scale: 1, x: 0, y: 0, min: 1, max: 4 };
+  let pinchDist = null, pinchScale = 1;
+  let dragging = false, moved = false, lastX = 0, lastY = 0;
+
+  function getImg() { return stage.querySelector('.swatch'); }
+
+  function apply() {
+    const img = getImg();
+    if (!img) return;
+    img.style.transform = `translate(${state.x}px, ${state.y}px) scale(${state.scale})`;
+    stage.classList.toggle('zoomed', state.scale > 1);
+  }
+
+  function clamp(v, lo, hi) { return Math.min(hi, Math.max(lo, v)); }
+
+  function zoomTo(newScale, cx, cy) {
+    newScale = clamp(newScale, state.min, state.max);
+    const ratio = newScale / state.scale;
+    state.x = cx - ratio * (cx - state.x);
+    state.y = cy - ratio * (cy - state.y);
+    state.scale = newScale;
+    if (state.scale <= 1) { state.scale = 1; state.x = 0; state.y = 0; }
+    apply();
+  }
+
+  function reset() { state.scale = 1; state.x = 0; state.y = 0; apply(); }
+
+  stage.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const rect = stage.getBoundingClientRect();
+    zoomTo(state.scale * (1 - e.deltaY * 0.0015), e.clientX - rect.left, e.clientY - rect.top);
+  }, { passive: false });
+
+  stage.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('swatch')) return;
+    if (moved) { moved = false; return; }
+    const rect = stage.getBoundingClientRect();
+    const cx = e.clientX - rect.left, cy = e.clientY - rect.top;
+    zoomTo(state.scale > 1 ? 1 : 2.5, cx, cy);
+  });
+
+  stage.addEventListener('mousedown', (e) => {
+    if (state.scale <= 1 || !e.target.classList.contains('swatch')) return;
+    dragging = true; moved = false; lastX = e.clientX; lastY = e.clientY;
+    stage.classList.add('panning');
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - lastX, dy = e.clientY - lastY;
+    if (Math.abs(dx) > 2 || Math.abs(dy) > 2) moved = true;
+    state.x += dx; state.y += dy;
+    lastX = e.clientX; lastY = e.clientY;
+    apply();
+  });
+  window.addEventListener('mouseup', () => { dragging = false; stage.classList.remove('panning'); });
+
+  const dist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+  const mid = (t, rect) => ({ x: (t[0].clientX + t[1].clientX) / 2 - rect.left, y: (t[0].clientY + t[1].clientY) / 2 - rect.top });
+
+  stage.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+      pinchDist = dist(e.touches); pinchScale = state.scale;
+    } else if (e.touches.length === 1 && state.scale > 1) {
+      dragging = true; moved = false;
+      lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+      stage.classList.add('panning');
+    }
+  }, { passive: true });
+
+  stage.addEventListener('touchmove', (e) => {
+    const rect = stage.getBoundingClientRect();
+    if (e.touches.length === 2 && pinchDist) {
+      e.preventDefault();
+      const m = mid(e.touches, rect);
+      zoomTo(pinchScale * (dist(e.touches) / pinchDist), m.x, m.y);
+    } else if (e.touches.length === 1 && dragging) {
+      e.preventDefault();
+      const dx = e.touches[0].clientX - lastX, dy = e.touches[0].clientY - lastY;
+      if (Math.abs(dx) > 2 || Math.abs(dy) > 2) moved = true;
+      state.x += dx; state.y += dy;
+      lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+      apply();
+    }
+  }, { passive: false });
+
+  stage.addEventListener('touchend', (e) => {
+    if (e.touches.length < 2) pinchDist = null;
+    if (e.touches.length === 0) { dragging = false; stage.classList.remove('panning'); }
+  });
+
+  return { reset };
+}
 
 function renderHighlights() {
   const grid = document.getElementById('highlights-grid');
@@ -252,6 +346,7 @@ function closeLightbox() {
   lb.classList.remove('open');
   document.body.style.overflow = '';
   currentWork = null;
+  if (zoomController) zoomController.reset();
 }
 
 function renderLightbox() {
@@ -263,6 +358,8 @@ function renderLightbox() {
   const thumbs = document.getElementById('lightbox-thumbs');
 
   stage.innerHTML = `<img class="swatch" src="${currentWork.images[currentImage]}" alt="${currentWork.title}">`;
+  stage.innerHTML = `<img class="swatch" src="${currentWork.images[currentImage]}" alt="${currentWork.title}">`;
+if (zoomController) zoomController.reset();
   counter.textContent = `${String(currentImage + 1).padStart(2, '0')} / ${String(currentWork.images.length).padStart(2, '0')}`;
   titleEl.textContent = currentWork.title;
   descEl.textContent = currentWork.description;
@@ -291,9 +388,12 @@ function prevImage() {
   renderLightbox();
 }
 
+let zoomController = null;
+
 function setupLightboxControls() {
   const lb = document.getElementById('lightbox');
   if (!lb) return;
+  zoomController = setupZoomableImage(document.getElementById('lightbox-stage'));
   document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
   document.getElementById('lightbox-next').addEventListener('click', nextImage);
   document.getElementById('lightbox-prev').addEventListener('click', prevImage);
