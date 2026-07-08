@@ -7,17 +7,20 @@ const WORKS = [
   {
     id: 'w29', title: 'botcards for @miloelio', medium: 'Partial Profile', year: '2026',
     description: 'tinned fish botcards for the lovely milooooo!! hehe these were fun to make and animate! includes a mobile/tap-screen action button as well on smaller screens. thank u for trusting me with making this come to life milo!!',
-    images: ['assets/gallery/w29-1.gif', 'assets/gallery/w29-2.png']
+    images: ['assets/gallery/w29-1.gif', 'assets/gallery/w29-2.png'], 
+    featured: true
   },
   {
     id: 'w28', title: 'commission for @MEMI', medium: 'Full Profile', year: '2026',
     description: 'bright webtoon/liquid glass inspired profile for memi!! absolute honour to work on her profile again for the summer ! included animated notifications, tabulated info, collapsible information section, and series-custom botcards! ilysm memi <3',
-    images: ['assets/gallery/w28-1.png', 'assets/gallery/w28-2.png', 'assets/gallery/w28-3.gif', 'assets/gallery/w28-4.gif', 'assets/gallery/w28-5.gif', 'assets/gallery/w28-6.png']
+    images: ['assets/gallery/w28-1.png', 'assets/gallery/w28-2.png', 'assets/gallery/w28-3.gif', 'assets/gallery/w28-4.gif', 'assets/gallery/w28-5.gif', 'assets/gallery/w28-6.png'],
+    featured: true
   },
   {
     id: 'w27', title: 'commission for @Semerkan', medium: 'Full Profile', year: '2026',
     description: 'Neo-futurism + video game inspired layout that included load-in animations, series box, light-dark toggle, and mobile-only carousel and layouts! it was an honour to work for my dear Shiva again! thank you always for your patience, support, and trust on the project and for working with me! <3',
-    images: ['assets/gallery/w27-1.webp', 'assets/gallery/w27-2.webp', 'assets/gallery/w27-3.png', 'assets/gallery/w27-4.png', 'assets/gallery/w27-5.gif', 'assets/gallery/w27-6.gif', 'assets/gallery/w27-7.gif', 'assets/gallery/w27-9.gif', 'assets/gallery/w27-9.png']
+    images: ['assets/gallery/w27-1.webp', 'assets/gallery/w27-2.webp', 'assets/gallery/w27-3.png', 'assets/gallery/w27-4.png', 'assets/gallery/w27-5.gif', 'assets/gallery/w27-6.gif', 'assets/gallery/w27-7.gif', 'assets/gallery/w27-9.gif', 'assets/gallery/w27-9.png'], 
+    featured: true
   },
   {
     id: 'w26', title: 'commission for @Birdie Hawthorne', medium: 'Full Profile', year: '2026',
@@ -31,7 +34,8 @@ const WORKS = [
   },
     {id: 'w24', title: 'commission for @Farmerhay', medium: 'Full Profile', year: '2026',
     description: 'tgswiiwagaa-inspired commission for hailey who gave me the creative freedom and chance to work on such a cool profile for her!! one of my fav creators and one of the first creators i followed on the site!! it was an honour to do her profile for her!! <3 thank you for the support and trust hailey!! <3 ily included a complex scrapbook/manga layout & fully responsive design!',
-    images: ['assets/gallery/w24-1.webp', 'assets/gallery/w24-2.webp']
+    images: ['assets/gallery/w24-1.webp', 'assets/gallery/w24-2.webp'], 
+    featured: true
   },
   {
     id: 'w23', title: 'commission for @hymn.', medium: 'Full Profile', year: '2025',
@@ -153,7 +157,7 @@ const WORKS = [
 function renderHighlights() {
   const grid = document.getElementById('highlights-grid');
   if (!grid) return;
-  const featured = WORKS.slice(0, 4);
+  const featured = WORKS.filter(w => w.featured);
   grid.innerHTML = featured.map((w, i) => `
     <a class="highlight-card" href="gallery.html#${w.id}" aria-label="${w.title}">
       <img class="swatch" src="${w.images[0]}" alt="${w.title}">
