@@ -541,20 +541,19 @@ section.block:last-of-type { border-bottom: none; }
 }
 
 .lightbox-stage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: #232019;
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #232019;
+    width: 100%;
 }
 .lightbox-stage .swatch {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    display: block;
 }
 
 .lightbox-nav-btn {
