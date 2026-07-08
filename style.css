@@ -1,6 +1,3 @@
-/* ==========================================================================
-   TOKENS
-   ========================================================================== */
 :root {
   --paper:        #F7F6F2;
   --paper-dim:     #F0EEE8;
@@ -19,9 +16,6 @@
   --radius: 2px;
 }
 
-/* ==========================================================================
-   RESET
-   ========================================================================== */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
@@ -82,9 +76,7 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--muted);
 }
 
-/* ==========================================================================
-   HEADER / NAV
-   ========================================================================== */
+
 .site-header {
   border-bottom: 1px solid var(--line);
   position: sticky;
@@ -141,9 +133,6 @@ button { font-family: inherit; cursor: pointer; }
 }
 .site-nav a:hover::after { transform: scaleX(1); }
 
-/* ==========================================================================
-   HERO
-   ========================================================================== */
 .hero {
   padding: clamp(56px, 10vw, 108px) 0 clamp(48px, 8vw, 84px);
   border-bottom: 1px solid var(--line);
@@ -187,9 +176,6 @@ button { font-family: inherit; cursor: pointer; }
 }
 .hero-meta strong { color: var(--ink); font-weight: 400; }
 
-/* ==========================================================================
-   SECTION SCAFFOLDING
-   ========================================================================== */
 section.block {
   padding: clamp(48px, 8vw, 84px) 0;
   border-bottom: 1px solid var(--line);
@@ -219,9 +205,6 @@ section.block:last-of-type { border-bottom: none; }
 }
 .block-head .see-all:hover { color: var(--accent); border-color: var(--accent); }
 
-/* ==========================================================================
-   HIGHLIGHTS
-   ========================================================================== */
 .highlights-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -241,6 +224,10 @@ section.block:last-of-type { border-bottom: none; }
 .highlight-card .swatch {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .highlight-card:hover .swatch { transform: scale(1.045); }
@@ -274,9 +261,6 @@ section.block:last-of-type { border-bottom: none; }
   display: block;
 }
 
-/* ==========================================================================
-   ANNOUNCEMENTS / LOG
-   ========================================================================== */
 .log-list { display: flex; flex-direction: column; }
 
 .log-entry {
@@ -310,9 +294,6 @@ section.block:last-of-type { border-bottom: none; }
 .log-body h3 { font-size: 16px; margin-bottom: 4px; }
 .log-body p { color: var(--muted); font-size: 14.5px; max-width: 60ch; }
 
-/* ==========================================================================
-   CONTACT
-   ========================================================================== */
 .contact-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -412,9 +393,6 @@ section.block:last-of-type { border-bottom: none; }
 .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
 .copy-btn.copied { border-color: var(--accent); color: var(--accent); }
 
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
 .site-footer {
   padding: 28px 0 40px;
 }
@@ -429,9 +407,6 @@ section.block:last-of-type { border-bottom: none; }
 .site-footer a { text-decoration: none; }
 .site-footer a:hover { color: var(--accent); }
 
-/* ==========================================================================
-   GALLERY PAGE
-   ========================================================================== */
 .gallery-head {
   padding: clamp(40px, 7vw, 64px) 0 28px;
   border-bottom: 1px solid var(--line);
@@ -504,6 +479,10 @@ section.block:last-of-type { border-bottom: none; }
 .gallery-tile .swatch {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .gallery-tile:hover .swatch { transform: scale(1.05); }
@@ -543,9 +522,6 @@ section.block:last-of-type { border-bottom: none; }
   display: block;
 }
 
-/* ==========================================================================
-   LIGHTBOX
-   ========================================================================== */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -575,6 +551,10 @@ section.block:last-of-type { border-bottom: none; }
 .lightbox-stage .swatch {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .lightbox-nav-btn {
@@ -656,11 +636,8 @@ section.block:last-of-type { border-bottom: none; }
   opacity: 1;
   border-color: var(--white);
 }
-.lightbox-thumbs .thumb .swatch { position: static; width: 100%; height: 100%; }
+.lightbox-thumbs .thumb .swatch { position: static; width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* ==========================================================================
-   RESPONSIVE
-   ========================================================================== */
 @media (min-width: 720px) {
   .hero-grid { grid-template-columns: 1fr; }
 }
