@@ -1,95 +1,162 @@
-/* ==========================================================================
-   PLACEHOLDER SWATCHES
-   Every image slot below is a generated gradient placeholder so the layout
-   looks intentional with zero real assets. To use your own images, replace
-   the swatch div in the render functions with:
-     <img src="assets/gallery/your-file.jpg" alt="...">
-   and delete the corresponding makeSwatch() call.
-   ========================================================================== */
-function hashString(str) {
-  let h = 0;
-  for (let i = 0; i < str.length; i++) {
-    h = (h << 5) - h + str.charCodeAt(i);
-    h |= 0;
-  }
-  return Math.abs(h);
-}
-
-// A small set of hand-picked hue pairs so placeholders feel curated, not random.
-const PALETTES = [
-  ['#EFE9DD', '#B7C6B0'],
-  ['#E3DCCF', '#8FA79B'],
-  ['#EDE4D3', '#C9A98C'],
-  ['#DFE3D9', '#9AAE8D'],
-  ['#E9E2D6', '#A9B8A3'],
-  ['#E6E0D2', '#B99E8A'],
-];
-
-function makeSwatchStyle(seed) {
-  const idx = hashString(seed) % PALETTES.length;
-  const [a, b] = PALETTES[idx];
-  const angle = (hashString(seed + 'x') % 360);
-  return `background: linear-gradient(${angle}deg, ${a}, ${b});`;
-}
-
-/* ==========================================================================
-   GALLERY DATA
-   Each work can have multiple images (a "series"). Replace title, medium,
-   year, description, and images with your real work.
-   ========================================================================== */
 const WORKS = [
   {
-    id: 'w01', title: 'Peel & Fold', medium: 'code', year: '2026',
-    description: 'A CSS-only sticker peel effect using layered clip-path animation and pseudo-element choreography.',
-    images: ['w01-1', 'w01-2', 'w01-3']
+    id: 'w30', title: 'bio & theme switcher for @thequeerkitsune', medium: 'Partial Profile', year: '2026',
+    description: 'quick bio refresh + theme switcher for harper! changes theme between light/dark',
+    images: ['assets/gallery/w30-1.gif']
   },
   {
-    id: 'w02', title: 'Moonlit Echoes', medium: 'design', year: '2026',
-    description: 'A full theme port from CottageCore into a SillyTavern preset — palette, layout, and type system.',
-    images: ['w02-1', 'w02-2']
+    id: 'w29', title: 'botcards for @miloelio', medium: 'Partial Profile', year: '2026',
+    description: 'tinned fish botcards for the lovely milooooo!! hehe these were fun to make and animate! includes a mobile/tap-screen action button as well on smaller screens. thank u for trusting me with making this come to life milo!!',
+    images: ['assets/gallery/w29-1.gif', 'assets/gallery/w29-2.png']
   },
   {
-    id: 'w03', title: 'Sardine Study', medium: 'art', year: '2025',
-    description: 'Gradient-only still life exploring tin, oil, and light using layered radial gradients.',
-    images: ['w03-1', 'w03-2', 'w03-3', 'w03-4']
+    id: 'w28', title: 'commission for @MEMI', medium: 'Full Profile', year: '2026',
+    description: 'bright webtoon/liquid glass inspired profile for memi!! absolute honour to work on her profile again for the summer ! included animated notifications, tabulated info, collapsible information section, and series-custom botcards! ilysm memi <3',
+    images: ['assets/gallery/w28-1.png', 'assets/gallery/w28-2.png', 'assets/gallery/w28-3.gif', 'assets/gallery/w28-4.gif', 'assets/gallery/w28-5.gif', 'assets/gallery/w28-6.png']
   },
   {
-    id: 'w04', title: 'Five-Tone System', medium: 'design', year: '2025',
-    description: 'A five-color palette replacement system cycled across repeating UI elements with nth-child logic.',
-    images: ['w04-1', 'w04-2']
+    id: 'w27', title: 'commission for @Semerkan', medium: 'Full Profile', year: '2026',
+    description: 'Neo-futurism + video game inspired layout that included load-in animations, series box, light-dark toggle, and mobile-only carousel and layouts! it was an honour to work for my dear Shiva again! thank you always for your patience, support, and trust on the project and for working with me! <3',
+    images: ['assets/gallery/w27-1.webp', 'assets/gallery/w27-2.webp', 'assets/gallery/w27-3.png', 'assets/gallery/w27-4.png', 'assets/gallery/w27-5.gif', 'assets/gallery/w27-6.gif', 'assets/gallery/w27-7.gif', 'assets/gallery/w27-9.gif', 'assets/gallery/w27-9.png']
   },
   {
-    id: 'w05', title: 'Carousel, No JS', medium: 'code', year: '2025',
-    description: ':target and sibling combinators standing in for a full carousel component.',
-    images: ['w05-1', 'w05-2', 'w05-3']
+    id: 'w26', title: 'commission for @Birdie Hawthorne', medium: 'Full Profile', year: '2026',
+    description: 'glitchcore retro romance theme for bee!! this was such a cool theme to work with. included a 3d vhs for status, flipping cards with animated cassette tape, VHS-themed dropdowns, and hover-activated candles. thank you sooo much for your generosity & patience bee! <3',
+    images: ['assets/gallery/w26-1.png', 'assets/gallery/w26-2.gif', 'assets/gallery/w26-3.png', 'assets/gallery/w26-4.gif', 'assets/gallery/w26-5.png']
   },
   {
-    id: 'w06', title: 'Windows, Redrawn', medium: 'art', year: '2025',
-    description: 'A clip-path and gradient recreation of a familiar logo, built from four triangles and light.',
-    images: ['w06-1']
+    id: 'w25', title: 'commission for @uglylittlelamb', medium: 'Full Profile', year: '2026',
+    description: 'vintage / occult theme inspired profile for marcy!! thank you for your patience and freedom on the designs for this!! it was a lot of fun to make !! <3'
+    images: ['assets/gallery/w25-1.png', 'assets/gallery/w25-2.png', 'assets/gallery/w25-3.png', 'assets/gallery/w25-4.png']
+  },
+      id: 'w24', title: 'commission for @Farmerhay', medium: 'Full Profile', year: '2026',
+    description: 'tgswiiwagaa-inspired commission for hailey who gave me the creative freedom and chance to work on such a cool profile for her!! one of my fav creators and one of the first creators i followed on the site!! it was an honour to do her profile for her!! <3 thank you for the support and trust hailey!! <3 ily included a complex scrapbook/manga layout & fully responsive design!',
+    images: ['assets/gallery/w24-1.webp', 'assets/gallery/w24-2.webp']
   },
   {
-    id: 'w07', title: 'Bio Builder', medium: 'code', year: '2025',
+    id: 'w23', title: 'commission for @hymn.', medium: 'Full Profile', year: '2025',
+    description: 'vintage storybook-inspired commission for my lovely amazing talented ferris <3 my muse and inspiration for making bots (ilysm ferris), such an honour to do their profile again for their new account !! <3 included a toggleable search bar and animated menu + series-specific cards',
+    images: ['assets/gallery/w23-1.png', 'assets/gallery/w23-2.png', 'assets/gallery/w23-3.png']
+  },
+  {
+    id: 'w22', title: 'commission for @lococheese', medium: 'Full Profile', year: '2025',
+    description: 'cyberpunk commission for coco!! this was so much fun to work on!! ive always wanted to do a cyber-inspired design. included flippable cards, tabulated info boxes, and several animations over the bio. thank you for all patience and kindness coco!',
+    images: ['assets/gallery/w22-1.png', 'assets/gallery/w22-2.png', 'assets/gallery/w22-3.png']
+  },
+  {
+    id: 'w21', title: 'commission for @Roselil', medium: 'Full Profile', year: '2025',
+    description: 'stardew valley themed commission for Rose!! she trusted me to just do whatever i wanted and i chose to recreate one of the games she likes! included a daytime and nighttime mode! thank you so much for the trust, support, and kindness Rose <3 <3',
+    images: ['assets/gallery/w21-1.png', 'assets/gallery/w21-2.png', 'assets/gallery/w21-3.png', 'assets/gallery/w21-4.png']
+  },
+  {
+    id: 'w20', title: 'commission for @HappyLappy', medium: 'Full Profile', year: '2025',
+    description: 'league of legends spirit blossom inspired profile with light and dark mode and full UI change with expanding side bar menu and adapted mobile layout! this was a huge commission and was done for one of my first supporters ever!! super grateful for getting to work on this! thank u lappy for the trust and generous support <3',
+    images: ['assets/gallery/w20-1.png', 'assets/gallery/w20-2.png', 'assets/gallery/w20-3.png', 'assets/gallery/w20-4.png', 'assets/gallery/w20-5.png', 'assets/gallery/w20-6.png', 'assets/gallery/w20-7.png']
+  },
+  {
+    id: 'w19', title: 'commission for @Pexxastar', medium: 'Full Profile', year: '2025',
+    description: 'elven forest themed commission for pexxa!! thank you so much for the support and trust! included series-specific botcards, animated dropdowns, and full theme switch from night to day with different backgrounds and fully recoloured UI',
+    images: ['assets/gallery/w19-1.png', 'assets/gallery/w19-2.png', 'assets/gallery/w19-3.png', 'assets/gallery/w19-4.png', 'assets/gallery/w19-5.png', 'assets/gallery/w19-6.png']
+  },
+  {
+    id: 'w18', title: 'commission for @Xoxohni', medium: 'Full Profile', year: '2025',
     description: 'A consolidation pass across fourteen stylesheets — filtered, merged, alphabetized, scored.',
-    images: ['w07-1', 'w07-2']
+    images: ['assets/gallery/w18-1.png', 'assets/gallery/w18-2.png']
   },
   {
-    id: 'w08', title: 'Notification, Staggered', medium: 'design', year: '2024',
-    description: 'A CSS-only notification animation sequence with staggered entrance timing.',
-    images: ['w08-1', 'w08-2', 'w08-3']
+    id: 'w17', title: 'commission for @DeusFortuna', medium: 'Full Profile', year: '2025',
+    description: 'occult / horror commission for the lovely tuna!! they were so patient and lovely and gave me lots of creative freedom with their vision!!! thank you so much for the trust!!',
+    images: ['assets/gallery/w17-1.png', 'assets/gallery/w17-2.png']
+  },
+      id: 'w16', title: 'commission for @lewisvashnicholas', medium: 'Full Profile', year: '2025',
+    description: 'commission for lumiere!! this was really neat to work on!! thank you so much for your patience and support! included horizontal cards and tabulated dropdowns',
+    images: ['assets/gallery/w16-1.png', 'assets/gallery/w16-2.png']
+  },
+  {
+    id: 'w15', title: 'Commission for @grimmitto', medium: 'Full Profile', year: '2025',
+    description: 'commission for one of my favourite bot writers!! absolutely an honour! included custom botcards per series and limited/limitless, tabulated dropdowns, and animated menu and filter screens. thank you so much for your trust, patience, and support, grim!',
+    images: ['assets/gallery/w15-1.png', 'assets/gallery/w15-2.png', 'assets/gallery/w15-3.png', 'assets/gallery/w15-4.png']
+  },
+  {
+    id: 'w14', title: 'commission for @ratsoup', medium: 'Full Profile', year: '2025',
+    description: 'windows vista/old internet commission for the most amazing and patient kellin!!! was so much fun to play around with the windows vista look for the bio!! thank u for your trust and support kellin <3',
+    images: ['assets/gallery/w14-1.png', 'assets/gallery/w14-2.png']
+  },
+  {
+    id: 'w13', title: 'commission for @PheasantSong', medium: 'Full Profile', year: '2025',
+    description: 'swamp/southern theme for the lovely phea!! absolutely so much fun to design and work on this! included mobile-friendly botcards the flipped open like newpapers and an animated firefly overlay! thank u for the support and trust phea <3',
+    images: ['assets/gallery/w13-1.png', 'assets/gallery/w13-2.png']
+  },
+  {
+    id: 'w12', title: 'Commission for @Angst God', medium: 'Full Profile', year: '2025',
+    description: 'commission for Laith!! was a pleasure to work with and thank you for being super patient!! thank you for your support! <3',
+    images: ['assets/gallery/w12-1.png', 'assets/gallery/w12-2.png']
+  },
+  {
+    id: 'w11', title: 'commission for @VVillow', medium: 'Full Profile', year: '2025',
+    description: 'A clip-path and gradient recreation of a familiar logo, built from four triangles and light.',
+    images: ['assets/gallery/w11-1.png', 'assets/gallery/w11-2.png']
+  },
+  {
+    id: 'w10', title: 'commission for @darkrosyamaranthine', medium: 'Full Profile', year: '2025',
+    description: 'comm for my beloved ellie!! who gave me so much free will to do what I wanted and experiment with her profile! thank you for your patience! included horizontal cards + hover effect, light/dark mode with changing profile picture, and responsiveness for all screensizes',
+    images: ['assets/gallery/w10-1.png', 'assets/gallery/w10-2.png', 'assets/gallery/w10-3.png', 'assets/gallery/w10-4.png', 'assets/gallery/w10-5.png', 'assets/gallery/w10-6.png', 'assets/gallery/w10-7.png']
+  },
+  {
+    id: 'w09', title: 'Notification, Staggered', medium: 'Full Profile', year: '2025',
+    description: 'a super fun pikmin-inspired profile for the amazing Oishii!!! it was such an honour to work on this and so much fun!! thank you for your trust! included a tabulated dropdown menu and pikmin-website inspired layout',
+    images: ['assets/gallery/w09-1.png', 'assets/gallery/w09-2.png']
+  },
+
+  {
+    id: 'w08', title: 'commission for @rileysworld', medium: 'Full Profile', year: '2025',
+    description: 'dark academia/old money themed profile for my lovely lovely riley!!! it was so much fun to work on this!',
+    images: ['assets/gallery/w08-1.png', 'assets/gallery/w08-2.png']
+  },
+  {
+    id: 'w07', title: 'commission for @happylappy', medium: 'Full Profile', year: '2025',
+    description: 'in collaboration with mimi who did the wonderful page graphics!! included a record player loading screen and animated dropdown contents!',
+    images: ['assets/gallery/w07-1.png', 'assets/gallery/w07-2.png', 'assets/gallery/w07-3.png']
+  },
+  {
+    id: 'w06', title: 'commission for @darkmountain', medium: 'Full Profile', year: '2025',
+    description: 'an otome-inspired profile for the amazing memi who i absolutely adore!!! profile included botcards customized for each of her series and several animated elements and tabs',
+    images: ['assets/gallery/w06-1.png', 'assets/gallery/w06-2.png', 'assets/gallery/w06-3.png', 'assets/gallery/w06-4.png', 'assets/gallery/w06-5.png']
+  },
+  {
+    id: 'w05', title: 'commission for @semerkan', medium: 'Full Profile', year: '2025',
+    description: 'bamboo zen theme. for my lovely shiva <3 included several animated background elements and changed mobile formatting! so honoured to work on this!',
+    images: ['assets/gallery/w05-1.png', 'assets/gallery/w05-2.png', 'assets/gallery/w05-3.png']
+  },
+  {
+    id: 'w04', title: 'commission for @cryptobotany', medium: 'Full Profile', year: '2025',
+    description: 'future retro theme. thank you oodles and doodles for trusting me with doing your profile ferris!! it was the utmost honour to do work for the creator that inspired me to get into botmaking in the first place <3',
+    images: ['assets/gallery/w04-1.png','assets/gallery/w04-2.png', 'assets/gallery/w04-3.png']
+  },
+  {
+    id: 'w03', title: 'commission for @wolfegoddess', medium: 'Full Profile', year: '2025',
+    description: 'sheep cottagecore theme',
+    images: ['assets/gallery/w03-1.png', 'assets/gallery/w03-2.png']
+  },
+  {
+    id: 'w02', title: 'commission for @kzxbnz', medium: 'Full Profile', year: '2025',
+    description: 'classic academia theme',
+    images: ['assets/gallery/w02-1.png', 'assets/gallery/w02-2.png']
+  },
+    id: 'w01', title: 'Commission for @brezzk', medium: 'Full Profile', year: '2025',
+    description: 'Gothic occult theme',
+    images: ['assets/gallery/w01-1.png', 'assets/gallery/w01-2.png']
   },
 ];
 
-/* ==========================================================================
-   HIGHLIGHTS (landing page)
-   ========================================================================== */
+
 function renderHighlights() {
   const grid = document.getElementById('highlights-grid');
   if (!grid) return;
   const featured = WORKS.slice(0, 4);
   grid.innerHTML = featured.map((w, i) => `
     <a class="highlight-card" href="gallery.html#${w.id}" aria-label="${w.title}">
-      <div class="swatch" style="${makeSwatchStyle(w.images[0])}"></div>
+      <img class="swatch" src="${w.images[0]}" alt="${w.title}">
       <div class="card-label">
         <span class="num">NO. ${String(i + 1).padStart(2, '0')}</span>
         <span class="title">${w.title}</span>
@@ -99,14 +166,10 @@ function renderHighlights() {
   `).join('');
 }
 
-/* ==========================================================================
-   ANNOUNCEMENTS (landing page)
-   Replace with your own log entries — newest first.
-   ========================================================================== */
+
 const ANNOUNCEMENTS = [
-  { date: '2026-07-02', tag: 'update', title: 'Five-tone palette system published', body: 'A reusable nth-child based color cycling approach, written up alongside the source.' },
-  { date: '2026-06-18', tag: 'new work', title: 'Moonlit Echoes theme released', body: 'A full CottageCore-to-Moonlit port including fonts, layout, and custom CSS.' },
-  { date: '2026-05-30', tag: 'note', title: 'Taking on a few collaborations', body: 'Have some bandwidth for UI and theme work over the next few weeks — see contact below.' },
+  { date: '2026-07-07', tag: 'update', title: 'Moving off of Ko-Fi', body: 'Migrating all CSS commission work and tools here' },
+  { date: '2026-07-05', tag: 'new post', title: 'updated harper's updated bio and profile' },
 ];
 
 function renderAnnouncements() {
@@ -124,9 +187,7 @@ function renderAnnouncements() {
   `).join('');
 }
 
-/* ==========================================================================
-   GALLERY GRID (gallery page)
-   ========================================================================== */
+
 let activeFilter = 'all';
 
 function renderGallery() {
@@ -136,7 +197,7 @@ function renderGallery() {
     <div class="gallery-tile ${activeFilter !== 'all' && activeFilter !== w.medium ? 'hidden-tile' : ''}"
          data-medium="${w.medium}" data-index="${i}" tabindex="0" role="button"
          aria-label="Open ${w.title}">
-      <div class="swatch" style="${makeSwatchStyle(w.images[0])}"></div>
+      <img class="swatch" src="${w.images[0]}" alt="${w.title}">
       <span class="tile-tag">${w.medium}</span>
       <div class="tile-info">
         <span class="num">NO. ${String(i + 1).padStart(2, '0')}</span>
@@ -170,9 +231,6 @@ function setupFilters() {
   });
 }
 
-/* ==========================================================================
-   LIGHTBOX
-   ========================================================================== */
 let currentWork = null;
 let currentImage = 0;
 
@@ -200,14 +258,14 @@ function renderLightbox() {
   const descEl = document.getElementById('lightbox-desc');
   const thumbs = document.getElementById('lightbox-thumbs');
 
-  stage.innerHTML = `<div class="swatch" style="${makeSwatchStyle(currentWork.images[currentImage])}"></div>`;
+  stage.innerHTML = `<img class="swatch" src="${currentWork.images[currentImage]}" alt="${currentWork.title}">`;
   counter.textContent = `${String(currentImage + 1).padStart(2, '0')} / ${String(currentWork.images.length).padStart(2, '0')}`;
   titleEl.textContent = currentWork.title;
   descEl.textContent = currentWork.description;
 
   thumbs.innerHTML = currentWork.images.map((img, i) => `
     <div class="thumb ${i === currentImage ? 'active' : ''}" data-i="${i}">
-      <div class="swatch" style="${makeSwatchStyle(img)}"></div>
+      <img class="swatch" src="${img}" alt="${currentWork.title} thumbnail ${i + 1}">
     </div>
   `).join('');
   thumbs.querySelectorAll('.thumb').forEach(t => {
@@ -246,59 +304,12 @@ function setupLightboxControls() {
     if (e.key === 'ArrowRight') nextImage();
     if (e.key === 'ArrowLeft') prevImage();
   });
-
-  // Deep-link support: gallery.html#w03 opens that work directly.
   const hash = window.location.hash.replace('#', '');
   if (hash) {
     const idx = WORKS.findIndex(w => w.id === hash);
     if (idx > -1) openLightbox(idx);
   }
 }
-
-/* ==========================================================================
-   CONTACT FORM  (static-site friendly: builds a mailto: link, no backend)
-   ========================================================================== */
-function setupContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-
-  const CONTACT_EMAIL = 'you@example.com'; // <-- replace with your email
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = form.querySelector('#f-name').value.trim();
-    const email = form.querySelector('#f-email').value.trim();
-    const message = form.querySelector('#f-message').value.trim();
-
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name || 'website visitor'}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-  });
-}
-
-function setupCopyButtons() {
-  document.querySelectorAll('[data-copy]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const text = btn.getAttribute('data-copy');
-      try {
-        await navigator.clipboard.writeText(text);
-        const original = btn.textContent;
-        btn.textContent = 'Copied';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = original;
-          btn.classList.remove('copied');
-        }, 1600);
-      } catch (err) {
-        console.warn('Clipboard copy failed', err);
-      }
-    });
-  });
-}
-
-/* ==========================================================================
-   INIT
-   ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   renderHighlights();
   renderAnnouncements();
