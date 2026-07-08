@@ -132,6 +132,12 @@ button { font-family: inherit; cursor: pointer; }
   transition: transform 0.25s ease;
 }
 .site-nav a:hover::after { transform: scaleX(1); }
+.paymentportal {
+    border-radius: 5px;
+    background: var(--muted);
+    padding: 0.2rem 0.5rem !important;
+    border: 1px solid var(--accent);
+}
 
 .hero {
   padding: clamp(56px, 10vw, 108px) 0 clamp(48px, 8vw, 84px);
