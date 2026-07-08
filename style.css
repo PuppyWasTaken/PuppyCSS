@@ -636,6 +636,23 @@ section.block:last-of-type { border-bottom: none; }
   border-color: var(--white);
 }
 .lightbox-thumbs .thumb .swatch { position: static; width: 100%; height: 100%; object-fit: cover; display: block; }
+.lightbox-stage {
+  cursor: zoom-in;
+  touch-action: none; 
+}
+.lightbox-stage.zoomed {
+  cursor: grab;
+}
+.lightbox-stage.zoomed:active {
+  cursor: grabbing;
+}
+.lightbox-stage .swatch {
+  transform-origin: 0 0;
+  transition: transform 0.2s ease;
+}
+.lightbox-stage.panning .swatch {
+  transition: none;
+}
 
 @media (min-width: 720px) {
   .hero-grid { grid-template-columns: 1fr; }
