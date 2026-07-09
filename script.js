@@ -266,8 +266,8 @@ function renderHighlights() {
 
 
 const ANNOUNCEMENTS = [
-  { date: '2026-07-07', tag: 'update', title: 'Moving off of Ko-Fi', body: 'Migrating all CSS commission work and tools here' },
-  { date: '2026-07-07', tag: 'new post', title: 'added posts to gallery' }
+  { date: '2026-07-07', tag: 'note', title: 'Payments', body: 'If making a commission payment on desktop please press `Payments` in the header. If on mobile, use the `Tip Jar`'},
+  { date: '2026-07-07', tag: 'update', title: 'Moving off of Ko-Fi', body: 'Migrating all CSS commission work and tools here' }
 ];
 
 function renderAnnouncements() {
