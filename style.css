@@ -963,13 +963,7 @@ body.menu-locked { overflow: hidden; }
   position: relative;
   max-width: 68ch;
 }
-.terms-list li::marker{display:none;}
-.terms-list li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
+
 
 .faq-item {
   border-top: 1px solid var(--line);
