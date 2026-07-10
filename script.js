@@ -414,12 +414,132 @@ function setupLightboxControls() {
     if (idx > -1) openLightbox(idx);
   }
 }
+const NAV_LINKS = [
+  { href: 'index.html', label: 'Home' },
+  { href: 'gallery.html', label: 'Gallery' },
+  { href: 'commissions.html', label: 'Commissions' },
+  { href: 'index.html#contact', label: 'Contact' },
+  { href: 'https://www.paypal.com/ncp/payment/3Z959Z3MLHM26', label: 'Payments' }
+];
+
+function setupSideMenu() {
+  const toggle = document.getElementById('menu-toggle');
+  const closeBtn = document.getElementById('side-menu-close');
+  const menu = document.getElementById('side-menu');
+  const overlay = document.getElementById('side-menu-overlay');
+  const nav = document.getElementById('side-menu-nav');
+  if (!toggle || !menu || !overlay || !nav) return;
+
+  const here = window.location.pathname.split('/').pop() || 'index.html';
+  nav.innerHTML = NAV_LINKS.map((l, i) => {
+    const isCurrent = l.href.split('#')[0] === here && !l.href.startsWith('http');
+    return `<a href="${l.href}" class="${isCurrent ? 'current' : ''}">
+      <span>${l.label}</span>
+      <span class="idx">${String(i + 1).padStart(2, '0')}</span>
+    </a>`;
+  }).join('');
+
+  function openMenu() {
+    menu.classList.add('open');
+    overlay.classList.add('open');
+    toggle.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-locked');
+  }
+  function closeMenu() {
+    menu.classList.remove('open');
+    overlay.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-locked');
+  }
+
+  toggle.addEventListener('click', () => {
+    menu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+  });
+}
+
+function setupCopyButtons() {
+  document.querySelectorAll('.copy-btn[data-copy]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = btn.dataset.copy;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      const original = btn.textContent;
+      btn.textContent = 'Copied';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('copied');
+      }, 1400);
+    });
+  });
+}
+
+function setupContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+  });
+}
+
+const FAQS = [
+  { q: 'What payments do you accept?', a: 'Payments are handled through the link in the header (desktop) or the Tip Jar button (mobile), both routed through PayPal. If you require accommodations for a different payment processor, these can be arranged via DMs.' },
+  { q: 'Do you require a deposit?', a: 'Yes — a non-refundable $10 deposit is required for the mockup, with the remainder due when final code are delivered.' },
+  { q: 'Can I request revisions?', a: 'Yes, I am happy to make adjustments. Additional large revisions beyond that(such as full redesigns, big section additions, etc.) may be billed separately.' },
+  { q: 'What if I need to cancel?', a: 'Deposits are non-refundable once work has started, but any completed work will still be sent your way.' }
+];
+
+function renderFAQ() {
+  const list = document.getElementById('faq-list');
+  if (!list) return;
+  list.innerHTML = FAQS.map((f, i) => `
+    <div class="faq-item" data-i="${i}">
+      <button class="faq-q" aria-expanded="false">
+        <span>${f.q}</span>
+        <span class="plus">+</span>
+      </button>
+      <div class="faq-a"><p>${f.a}</p></div>
+    </div>
+  `).join('');
+  list.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      list.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        item.querySelector('.faq-q').setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   renderHighlights();
   renderAnnouncements();
   renderGallery();
+  renderFAQ();
   setupFilters();
   setupLightboxControls();
   setupContactForm();
   setupCopyButtons();
+  setupSideMenu();
 });
