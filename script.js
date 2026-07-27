@@ -1,5 +1,10 @@
 const WORKS = [
   {
+    id: 'w31', title: 'commission for @WaywardSoul', medium: 'Full Profile', year: '2026',
+    description: 'library theme for soul! such an honour to work on this and make her vision come to life. included library-card popups, interactive books, and torn paper series-specific botcards',
+    images: ['assets/gallery/w31-1.png','assets/gallery/w31-2.gif','assets/gallery/w31-3.gif','assets/gallery/w31-4.gif','assets/gallery/w31-5.png','assets/gallery/w31-6.png']
+  },
+  {
     id: 'w30', title: 'bio & theme switcher for @thequeerkitsune', medium: 'Partial Profile', year: '2026',
     description: 'quick bio refresh + theme switcher for harper! changes theme between light/dark',
     images: ['assets/gallery/w30-1.gif']
