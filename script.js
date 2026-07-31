@@ -270,6 +270,36 @@ function renderHighlights() {
 }
 
 
+function renderLatestAddition() {
+  const el = document.getElementById('latest-pick');
+  if (!el || !WORKS.length) return;
+  const w = WORKS[0]; // assumes WORKS is kept newest-first
+  el.innerHTML = `
+    <a class="latest-pick" href="gallery.html#${w.id}">
+      <img class="swatch" src="${w.images[0]}" alt="${w.title}">
+      <div class="latest-pick-body">
+        <span class="tag">Latest addition</span>
+        <h3>${w.title}</h3>
+        <p>${w.medium} — ${w.year}</p>
+      </div>
+    </a>
+  `;
+}
+
+// Edit this list to change the quick-link buttons under "Elsewhere"
+const QUICK_LINKS = [
+  { label: 'Carrd', href: 'https://puppy.uwu.ai/' },
+  { label: 'JAI Bio Builder', href: 'https://puppywastaken.github.io/JAI-Bio-Builder/' },
+  { label: 'JAI Class Updater', href: 'https://puppywastaken.github.io/JAI-Bio-Class-Updater/' },
+  { label: 'SVG Path Resizer', href: 'https://puppywastaken.github.io/puppypaths/' }
+];
+
+function renderQuickLinks() {
+  const grid = document.getElementById('quick-links-grid');
+  if (!grid) return;
+  grid.innerHTML = QUICK_LINKS.map(l => `<a class="link-btn" href="${l.href}">${l.label}</a>`).join('');
+}
+
 const ANNOUNCEMENTS = [
   { date: '2026-07-07', tag: 'note', title: 'Payments', body: 'If making a commission payment on desktop please press `Payments` in the header. If on mobile, use the `Tip Jar`'},
   { date: '2026-07-07', tag: 'update', title: 'Moving off of Ko-Fi', body: 'Migrating all CSS commission work and tools here' }
@@ -539,7 +569,9 @@ function renderFAQ() {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderHighlights();
+  renderLatestAddition();
   renderAnnouncements();
+  renderQuickLinks();
   renderGallery();
   renderFAQ();
   setupFilters();
