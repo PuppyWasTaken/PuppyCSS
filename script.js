@@ -534,9 +534,10 @@ function setupContactForm() {
 }
 
 const FAQS = [
+  { q: 'Can I request revisions?', a: 'Yes, I am happy to make adjustments. Additional large revisions beyond that(such as full redesigns, big section additions, etc.) may be billed separately.' },
   { q: 'What payments do you accept?', a: 'Payments are handled through the link in the header (desktop) or the Tip Jar button (mobile), both routed through PayPal. If you require accommodations for a different payment processor, these can be arranged via DMs.' },
   { q: 'Do you require a deposit?', a: 'Yes — a non-refundable $10 deposit is required for the mockup, with the remainder due when final code are delivered.' },
-  { q: 'Can I request revisions?', a: 'Yes, I am happy to make adjustments. Additional large revisions beyond that(such as full redesigns, big section additions, etc.) may be billed separately.' },
+  { q: 'Do you use AI to code/Do you vibe code?', a: 'No! I do not use AI assistants at any point in the commission process. All mockups, designs, and coding is done manually.' },
   { q: 'What if I need to cancel?', a: 'Deposits are non-refundable once work has started, but any completed work will still be sent your way.' }
 ];
 
