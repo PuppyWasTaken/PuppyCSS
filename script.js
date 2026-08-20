@@ -286,12 +286,12 @@ function renderLatestAddition() {
   `;
 }
 
-// Edit this list to change the quick-link buttons under "Elsewhere"
 const QUICK_LINKS = [
   { label: 'Carrd', href: 'https://puppy.uwu.ai/' },
   { label: 'JAI Bio Builder', href: 'https://puppywastaken.github.io/JAI-Bio-Builder/' },
   { label: 'JAI Class Updater', href: 'https://puppywastaken.github.io/JAI-Bio-Class-Updater/' },
-  { label: 'SVG Path Resizer', href: 'https://puppywastaken.github.io/puppypaths/' }
+  { label: 'SVG Path Resizer', href: 'https://puppywastaken.github.io/puppypaths/' },
+  { label: 'Text Gradient Maker', href: 'https://puppywastaken.github.io/puppygradients/' }
 ];
 
 function renderQuickLinks() {
