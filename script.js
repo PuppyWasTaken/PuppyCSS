@@ -291,7 +291,8 @@ const QUICK_LINKS = [
   { label: 'JAI Bio Builder', href: 'https://puppywastaken.github.io/JAI-Bio-Builder/' },
   { label: 'JAI Class Updater', href: 'https://puppywastaken.github.io/JAI-Bio-Class-Updater/' },
   { label: 'SVG Path Resizer', href: 'https://puppywastaken.github.io/puppypaths/' },
-  { label: 'Text Gradient Maker', href: 'https://puppywastaken.github.io/puppygradients/' }
+  { label: 'Text Gradient Maker', href: 'https://puppywastaken.github.io/puppygradients/' },
+  { label: 'JAI to ST Lorebook Converter', href: 'https://puppywastaken.github.io/JAI-Lorebook-Converter/' }
 ];
 
 function renderQuickLinks() {
