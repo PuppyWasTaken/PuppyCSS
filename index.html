@@ -16,8 +16,10 @@
 <meta name="twitter:title" content="Puppy's CSS Works">
 <meta name="twitter:description" content="Puppy's Collection of Personal Works and Designs">
 <meta name="twitter:image" content="https://puppywastaken.github.io/PuppyCSS/assets/websitelogo.png">
+<meta name="theme-color" content="#21393b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Mono:wght@400&family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -48,19 +50,29 @@
   <div class="side-menu-foot">Tips & commissions always appreciated.</div>
 </aside>
 
-<main>
+<main id="top">
 
   <!-- HERO -->
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="eyebrow">Contact for commissions</div>
-      <h1>A collection of past, present, and future silliness.</h1>
-      <p class="hero-role">Explore the posts below to see my past work. Tips & Support are always appreciated.</p>
-      <div class="hero-meta">
-        <span><strong><a class="copy-btn tipjarbtn" href="https://www.paypal.com/ncp/payment/3Z959Z3MLHM26">Tip Jar</a></strong></span>
-        <span><strong>30+</strong> commissions</span>
-        <span>Always open to new work.</span>
-		<span>No AI or vibecoded profiles or designs.</span>
+    <div class="wrap">
+      <div class="hero-frame">
+	  <img class="persona" src="https://file.garden/aWyedZylm2AE_XoC/puppy-sona-img">
+        <div class="hero-inner">
+          <div class="eyebrow">Contact for commissions</div>
+          <h1>A collection of past, present, and future <em>silliness.</em></h1>
+          <p class="hero-role">Explore the posts below to see my past work. Tips &amp; Support are always appreciated.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="gallery.html">View gallery</a>
+            <a class="btn btn-ghost" href="commissions.html">Commission info</a>
+          </div>
+          <div class="hero-meta">
+            <span><strong><a class="copy-btn tipjarbtn" href="https://www.paypal.com/ncp/payment/3Z959Z3MLHM26">Tip Jar</a></strong></span>
+            <span><strong>30+</strong> commissions</span>
+            <span>Always open to new work.</span>
+            <span>No AI or vibecoded profiles or designs.</span>
+          </div>
+        </div>
+        <div class="hero-mark" aria-hidden="true">Puppy<em>CSS</em></div>
       </div>
     </div>
   </section>
@@ -69,7 +81,7 @@
   <section class="block" id="highlights">
     <div class="wrap">
       <div class="block-head">
-        <h2>Highlighted works</h2>
+        <h2>Highlighted <em>works</em></h2>
         <a href="gallery.html" class="see-all">View full gallery →</a>
       </div>
       <div class="highlights-grid" id="highlights-grid"><!-- injected --></div>
@@ -80,7 +92,7 @@
   <section class="block" id="log">
     <div class="wrap">
       <div class="block-head">
-        <h2>Recent Posts</h2>
+        <h2>Recent <em>Posts</em></h2>
       </div>
       <div id="latest-pick"><!-- injected --></div>
       <div class="log-list" id="log-list"><!-- injected --></div>
@@ -90,38 +102,57 @@
   <!-- QUICK LINKS -->
   <section class="block block-links" id="quick-links">
     <div class="wrap">
-      <div class="block-head">
-        <h2>Tools and More</h2>
+      <div class="panel panel-dark tools-panel">
+        <div class="block-head">
+          <h2>Tools and <em>More</em></h2>
+        </div>
+        <div class="quick-links-grid" id="quick-links-grid"><!-- injected --></div>
       </div>
-      <div class="quick-links-grid" id="quick-links-grid"><!-- injected --></div>
+    </div>
+  </section>
+
+  <!-- EXTENSION SHOWCASE -->
+  <section class="block block--dark" id="extensions" aria-labelledby="extensions-heading">
+    <div class="wrap">
+      <div class="block-head">
+        <div>
+          <span class="kicker">04 — For your browser</span>
+          <h2 id="extensions-heading">Browser <em>extensions</em></h2>
+        </div>
+      </div>
+      <div class="extensions-grid" id="extensions-grid"><!-- injected --></div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="block" id="contact">
     <div class="wrap">
-      <div class="block-head">
-        <h2>Get in touch</h2>
-      </div>
-      <div class="contact-grid">
-        
-
-        <aside class="contact-aside">
-          <h3>Other ways to reach me</h3>
-          <div class="contact-row">
-            <span class="label">Personal Discord</span>
-            <span class="value">PermanentSky</span>
-			<a class="copy-btn" href="https://discord.com/users/907132356404609064">Link</a>
-            <button class="copy-btn" data-copy="permanentsky">Copy</button>
+      <div class="panel panel-slate contact-panel">
+        <div class="contact-intro">
+          <div class="eyebrow">Contact</div>
+          <div class="block-head">
+            <h2>Get in <em>touch</em></h2>
           </div>
-          <div class="contact-row">
-            <span class="label">Discord Server</span>
-            <span class="value">Night Drive</span>
-			<a class="copy-btn" href="https://discord.com/invite/nightdrive">Link</a>
-            <button class="copy-btn" data-copy="discord.gg/nightdrive">Copy</button>
-          </div>
-        </aside>
+          <p>Discord is the best way to reach me about commissions, questions, or just to say hi.</p>
+        </div>
 
+        <div class="contact-grid">
+          <aside class="contact-aside">
+            <h3>Other ways to reach me</h3>
+            <div class="contact-row">
+              <span class="label">Personal Discord</span>
+              <span class="value">PermanentSky</span>
+              <a class="copy-btn" href="https://discord.com/users/907132356404609064">Link</a>
+              <button class="copy-btn" data-copy="permanentsky">Copy</button>
+            </div>
+            <div class="contact-row">
+              <span class="label">Discord Server</span>
+              <span class="value">Night Drive</span>
+              <a class="copy-btn" href="https://discord.com/invite/nightdrive">Link</a>
+              <button class="copy-btn" data-copy="discord.gg/nightdrive">Copy</button>
+            </div>
+          </aside>
+        </div>
       </div>
     </div>
   </section>
@@ -129,10 +160,17 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap">
+  <div class="wrap footer-row">
     <span>© 2026 Permanent</span>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="commissions.html">Commissions</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
     <a href="#top">Back to top ↑</a>
   </div>
+  <div class="footer-mark" aria-hidden="true">PuppyCSS</div>
 </footer>
 
 <script src="script.js"></script>

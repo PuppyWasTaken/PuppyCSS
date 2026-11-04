@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Commissions — PuppyCSS</title>
 <meta name="description" content="Commission info, pricing tiers, process, and terms.">
+<meta name="theme-color" content="#21393b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Mono:wght@400&family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -37,22 +39,27 @@
   <div class="side-menu-foot">Tips & commissions always appreciated.</div>
 </aside>
 
-<main>
+<main id="top">
 
   <section class="gallery-head">
     <div class="wrap">
-      <div class="status-pill"><span class="dot"></span>Slots Full</div>
-      <h1>Commission Info</h1>
-      <p>Pricing, process, and terms for CSS Commissions. Please explore below and then reach out on Discord to enquire further.</p>
+      <div class="page-hero">
+        <div class="status-pill"><span class="dot"></span>Slots Full</div>
+        <h1>Commission <em>Info</em></h1>
+        <p>Pricing, process, and terms for CSS Commissions. Please explore below and then reach out on Discord to enquire further.</p>
+      </div>
     </div>
   </section>
 
 
-  <section class="block" id="tiers">
+  <section class="block block--paper" id="tiers">
     <div class="wrap">
       <div class="block-head">
-        <h2>Pricing</h2>
-        <a href="gallery.html" class="see-all">See examples →</a>
+        <div>
+          <span class="kicker">01 — Pricing</span>
+          <h2>Pick a <em>folder</em></h2>
+        </div>
+        <a href="gallery.html" class="see-all">See examples <span aria-hidden="true">→</span></a>
       </div>
       <div class="tier-grid">
 
@@ -97,7 +104,7 @@
   <section class="block" id="process">
     <div class="wrap">
       <div class="block-head">
-        <h2>The Process</h2>
+        <h2>The <em>Process</em></h2>
       </div>
       <div class="process-list">
         <div class="process-step">
@@ -159,12 +166,14 @@
 
   <section class="block" id="cta">
     <div class="wrap">
-      <div class="block-head">
-        <h2>Ready to start?</h2>
-      </div>
-      <p class="hero-role">Head to the <a href="index.html#contact">contact section</a> for Discord details, or drop a tip if you just want to support the work.</p>
-      <div class="hero-meta" style="margin-top: 18px;">
-        <span><strong><a class="copy-btn tipjarbtn" href="https://www.paypal.com/ncp/payment/3Z959Z3MLHM26">Tip Jar</a></strong></span>
+      <div class="panel panel-dark cta-panel">
+        <div class="block-head">
+          <h2>Ready to <em>start?</em></h2>
+        </div>
+        <p class="hero-role">Head to the <a href="index.html#contact">contact section</a> for Discord details, or drop a tip if you just want to support the work.</p>
+        <div class="hero-meta">
+          <span><strong><a class="copy-btn tipjarbtn" href="https://www.paypal.com/ncp/payment/3Z959Z3MLHM26">Tip Jar</a></strong></span>
+        </div>
       </div>
     </div>
   </section>
@@ -172,10 +181,17 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap">
+  <div class="wrap footer-row">
     <span>© 2026 Permanent</span>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="commissions.html">Commissions</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
     <a href="#top">Back to top ↑</a>
   </div>
+  <div class="footer-mark" aria-hidden="true">PuppyCSS</div>
 </footer>
 
 <script src="script.js"></script>

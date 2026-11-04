@@ -24,7 +24,7 @@ const WORKS = [
   {
     id: 'w27', title: 'commission for @Semerkan', medium: 'Full Profile', year: '2026',
     description: 'Neo-futurism + video game inspired layout that included load-in animations, series box, light-dark toggle, and mobile-only carousel and layouts! it was an honour to work for my dear Shiva again! thank you always for your patience, support, and trust on the project and for working with me! <3',
-    images: ['assets/gallery/w27-1.webp', 'assets/gallery/w27-2.webp', 'assets/gallery/w27-3.png', 'assets/gallery/w27-4.png', 'assets/gallery/w27-5.gif', 'assets/gallery/w27-6.gif', 'assets/gallery/w27-7.gif', 'assets/gallery/w27-9.gif', 'assets/gallery/w27-9.png'], 
+    images: ['assets/gallery/w27-1.webp', 'assets/gallery/w27-2.webp', 'assets/gallery/w27-3.png', 'assets/gallery/w27-4.png', 'assets/gallery/w27-5.gif', 'assets/gallery/w27-6.gif', 'assets/gallery/w27-7.gif', 'assets/gallery/w27-8.gif', 'assets/gallery/w27-9.png'], 
     featured: true
   },
   {
@@ -301,9 +301,76 @@ function renderQuickLinks() {
   grid.innerHTML = QUICK_LINKS.map(l => `<a class="link-btn" href="${l.href}">${l.label}</a>`).join('');
 }
 
+const EXTENSIONS = [
+  {
+    title: "Puppy's JanitorAI Chat Themes",
+    description: 'Give your JanitorAI chats a new look with custom chat themes.',
+    image: 'assets/extensions/chat-themes-demo.png',
+    links: [
+      { label: 'Chrome Store', href: 'https://chromewebstore.google.com/detail/janitorai-chat-theme-over/pajlpkacdcamnfkcgoeffmphbcpfbgki?utm_source=item-share-cb' },
+      { label: 'Firefox', href: 'https://addons.mozilla.org/en-US/firefox/addon/janitorai-chat-theme-overlay/?' },
+      { label: 'GitHub', href: 'https://github.com/PuppyWasTaken/Puppys-JanitorAI-Chat-Themes' }
+    ]
+  },
+  {
+    title: "Puppy's Pals JanitorAI Chat Pets",
+    description: 'Bring a little company to your JanitorAI chats with chat pets.',
+    image: 'assets/extensions/chat-pets-demo.png',
+    links: [
+      { label: 'Chrome Store', href: 'https://chromewebstore.google.com/detail/puppys-pals-janitorai-cha/blapjjinejelciecpdpnogbjpfplammj' },
+      { label: 'Firefox', href: 'https://addons.mozilla.org/en-US/firefox/addon/puppys-pals-jai-chat-pets/' },
+      { label: 'GitHub', href: 'https://github.com/PuppyWasTaken/Puppys-JanitorAI-Chat-Pets' }
+    ]
+  }
+];
+
+function renderExtensions() {
+  const grid = document.getElementById('extensions-grid');
+  if (!grid) return;
+
+  EXTENSIONS.forEach(extension => {
+    const card = document.createElement('article');
+    card.className = 'extension-card';
+
+    const image = document.createElement('img');
+    image.className = 'extension-demo';
+    image.alt = `${extension.title} demo`;
+    image.loading = 'lazy';
+    image.addEventListener('error', () => {
+      image.alt = `Demo preview coming soon for ${extension.title}`;
+      image.src = 'assets/extensions/demo-placeholder.svg';
+    }, { once: true });
+    image.src = extension.image;
+
+    const body = document.createElement('div');
+    body.className = 'extension-body';
+    const title = document.createElement('h3');
+    title.textContent = extension.title;
+    const description = document.createElement('p');
+    description.textContent = extension.description;
+    const links = document.createElement('div');
+    links.className = 'extension-links';
+
+    extension.links.forEach(link => {
+      const anchor = document.createElement('a');
+      anchor.className = 'link-btn';
+      anchor.href = link.href;
+      anchor.textContent = link.label;
+      anchor.target = '_blank';
+      anchor.rel = 'noopener noreferrer';
+      anchor.setAttribute('aria-label', `${extension.title} — ${link.label} (opens in a new tab)`);
+      links.appendChild(anchor);
+    });
+
+    body.append(title, description, links);
+    card.append(image, body);
+    grid.appendChild(card);
+  });
+}
+
 const ANNOUNCEMENTS = [
-  { date: '2026-07-07', tag: 'note', title: 'Payments', body: 'If making a commission payment on desktop please press `Payments` in the header. If on mobile, use the `Tip Jar`'},
-  { date: '2026-07-07', tag: 'update', title: 'Moving off of Ko-Fi', body: 'Migrating all CSS commission work and tools here' }
+  { date: '2026-11-03', tag: 'note', title: 'Hiatus', body: 'Short commissions and coding break until mid-November.'},
+  { date: '2026-09-31', tag: 'update', title: 'Extensions', body: 'Extensions are now available on Firefox, Chrome, and Github' }
 ];
 
 function renderAnnouncements() {
@@ -574,6 +641,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderLatestAddition();
   renderAnnouncements();
   renderQuickLinks();
+  renderExtensions();
   renderGallery();
   renderFAQ();
   setupFilters();
